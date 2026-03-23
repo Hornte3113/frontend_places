@@ -2,7 +2,9 @@
 // COMPONENT — PlaceCard (estado Success)
 // Tarjeta de un lugar con toda su información relevante.
 // ============================================================
+import Image from "next/image";
 import { Place } from "@/types/places.types";
+import { buildPhotoUrl } from "@/lib/api";
 
 interface PlaceCardProps {
   place: Place;
@@ -85,29 +87,41 @@ export default function PlaceCard({ place, index }: PlaceCardProps) {
     >
       {/* Imagen / placeholder visual */}
       <div className="relative h-44 bg-gradient-to-br from-ink-700 to-ink-900 overflow-hidden flex-shrink-0">
-        {/* Grid decorativo tipo mapa */}
-        <div
-          className="absolute inset-0 opacity-10"
-          style={{
-            backgroundImage:
-              "linear-gradient(var(--tw-gradient-from) 1px, transparent 1px), linear-gradient(90deg, var(--tw-gradient-from) 1px, transparent 1px)",
-            backgroundSize: "32px 32px",
-            "--tw-gradient-from": "#fbbf24",
-          } as React.CSSProperties}
-        />
-        {/* Pin central */}
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="relative">
-            <div className="w-10 h-10 rounded-full bg-amber-500/20 border border-amber-500/40 flex items-center justify-center
-              group-hover:scale-110 transition-transform duration-300">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fbbf24" strokeWidth="2">
-                <path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0Z" />
-                <circle cx="12" cy="10" r="3" />
-              </svg>
+        {place.photos && place.photos.length > 0 ? (
+          <Image
+            src={buildPhotoUrl(place.photos[0].name, 600)}
+            alt={place.displayName.text}
+            fill
+            className="object-cover"
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          />
+        ) : (
+          <>
+            {/* Grid decorativo tipo mapa */}
+            <div
+              className="absolute inset-0 opacity-10"
+              style={{
+                backgroundImage:
+                  "linear-gradient(var(--tw-gradient-from) 1px, transparent 1px), linear-gradient(90deg, var(--tw-gradient-from) 1px, transparent 1px)",
+                backgroundSize: "32px 32px",
+                "--tw-gradient-from": "#fbbf24",
+              } as React.CSSProperties}
+            />
+            {/* Pin central */}
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="relative">
+                <div className="w-10 h-10 rounded-full bg-amber-500/20 border border-amber-500/40 flex items-center justify-center
+                  group-hover:scale-110 transition-transform duration-300">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fbbf24" strokeWidth="2">
+                    <path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0Z" />
+                    <circle cx="12" cy="10" r="3" />
+                  </svg>
+                </div>
+                <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-amber-500/40 rounded-full blur-sm" />
+              </div>
             </div>
-            <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-amber-500/40 rounded-full blur-sm" />
-          </div>
-        </div>
+          </>
+        )}
 
         {/* Tipo de lugar (badge) */}
         {typeLabel && (
