@@ -7,6 +7,15 @@ const nextConfig = {
         hostname: "localhost",
         port: "3001",
       },
+      {
+        protocol: "https",
+        hostname: "*.vercel.app",
+      },
+      {
+        
+        protocol: "https",
+        hostname: "**",
+      },
     ],
   },
 };
