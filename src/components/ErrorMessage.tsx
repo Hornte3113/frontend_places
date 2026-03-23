@@ -1,8 +1,7 @@
-// ============================================================
+
 // COMPONENT — ErrorMessage (estado Error)
 // Mensaje amigable cuando el backend o la red falla.
 // La app NO se rompe; muestra esto en su lugar.
-// ============================================================
 interface ErrorMessageProps {
   message: string;
   onRetry: () => void;

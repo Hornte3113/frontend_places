@@ -1,8 +1,4 @@
-// ============================================================
-// LIB — Capa de acceso a datos (API Client)
-// Todo fetch al backend vive aquí. Los componentes y hooks
-// NO hacen fetch directamente; usan estas funciones.
-// ============================================================
+
 import { PlacesApiResponse, PlaceDetailApiResponse } from "@/types/places.types";
 
 const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL ?? "http://localhost:3001";
@@ -41,10 +37,7 @@ export async function getPlaceDetail(placeId: string): Promise<PlaceDetailApiRes
   return res.json() as Promise<PlaceDetailApiResponse>;
 }
 
-/**
- * Construye la URL de una foto consumiendo NUESTRO backend proxy,
- * NUNCA directamente de Google Places.
- */
+
 export function buildPhotoUrl(photoName: string, maxWidth = 400): string {
   // photoName ya viene con el formato "places/XXX/photos/YYY"
   return `${BACKEND_URL}/api/places/photo/${photoName}?maxWidth=${maxWidth}`;

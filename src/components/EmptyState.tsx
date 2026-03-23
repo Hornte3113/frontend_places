@@ -1,7 +1,6 @@
-// ============================================================
+
 // COMPONENT — EmptyState
 // Se muestra cuando la búsqueda no retorna resultados.
-// ============================================================
 interface EmptyStateProps {
   query: string;
 }

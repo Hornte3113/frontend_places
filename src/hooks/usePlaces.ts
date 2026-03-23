@@ -1,8 +1,8 @@
-// ============================================================
+
 // HOOK — usePlaces
 // Encapsula el estado de búsqueda: loading, success, error.
 // Los componentes solo consumen este hook; no manejan fetch.
-// ============================================================
+
 "use client";
 
 import { useState, useCallback } from "react";

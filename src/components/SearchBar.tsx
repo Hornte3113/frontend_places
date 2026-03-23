@@ -1,7 +1,6 @@
-// ============================================================
+
 // COMPONENT — SearchBar
 // Input de búsqueda con botón y soporte para Enter.
-// ============================================================
 "use client";
 
 import { useState, KeyboardEvent } from "react";
