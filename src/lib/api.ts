@@ -42,9 +42,10 @@ export async function getPlaceDetail(placeId: string): Promise<PlaceDetailApiRes
 }
 
 /**
- * Construye la URL de una foto de Google Places.
+ * Construye la URL de una foto consumiendo NUESTRO backend proxy,
+ * NUNCA directamente de Google Places.
  */
 export function buildPhotoUrl(photoName: string, maxWidth = 400): string {
-  const apiKey = ""; 
-  return `https://places.googleapis.com/v1/${photoName}/media?maxWidthPx=${maxWidth}&key=${apiKey}`;
+  // photoName ya viene con el formato "places/XXX/photos/YYY"
+  return `${BACKEND_URL}/api/places/photo/${photoName}?maxWidth=${maxWidth}`;
 }
