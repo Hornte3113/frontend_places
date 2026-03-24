@@ -1,6 +1,4 @@
 
-// COMPONENT — SkeletonCard (estado Loading)
-// Shimmer placeholder mientras llegan los datos.
 export default function SkeletonCard() {
   return (
     <div className="rounded-2xl bg-ink-800 border border-ink-600 overflow-hidden animate-pulse">

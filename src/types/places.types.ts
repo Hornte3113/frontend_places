@@ -1,6 +1,5 @@
 
-// TIPOS — Espejo de los contratos del backend
-// El frontend conoce la forma de los datos que recibe,
+// es donde se define la forma de los objetos que llegan del back
 
 
 

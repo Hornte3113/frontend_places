@@ -3,7 +3,7 @@ import { PlacesApiResponse, PlaceDetailApiResponse } from "@/types/places.types"
 
 const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL ?? "http://localhost:3001";
 
-//Busca lugares por texto consultando nuestro backend
+//Busca lugares por texto consultando el back
 
 export async function searchPlaces(textQuery: string): Promise<PlacesApiResponse> {
   const res = await fetch(`${BACKEND_URL}/api/places/search`, {
@@ -37,6 +37,6 @@ export async function getPlaceDetail(placeId: string): Promise<PlaceDetailApiRes
 
 
 export function buildPhotoUrl(photoName: string, maxWidth = 400): string {
-  // photoName ya viene con el formato "places/XXX/photos/YYY"
+  // el photoName ya viene con el formato "places/XXX/photos/YYY"
   return `${BACKEND_URL}/api/places/photo/${photoName}?maxWidth=${maxWidth}`;
 }
