@@ -3,9 +3,8 @@ import { PlacesApiResponse, PlaceDetailApiResponse } from "@/types/places.types"
 
 const BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL ?? "http://localhost:3001";
 
-/**
- * Busca lugares por texto consultando nuestro backend proxy.
- */
+//Busca lugares por texto consultando nuestro backend
+
 export async function searchPlaces(textQuery: string): Promise<PlacesApiResponse> {
   const res = await fetch(`${BACKEND_URL}/api/places/search`, {
     method: "POST",
@@ -21,9 +20,8 @@ export async function searchPlaces(textQuery: string): Promise<PlacesApiResponse
   return res.json() as Promise<PlacesApiResponse>;
 }
 
-/**
- * Obtiene el detalle de un lugar por ID.
- */
+ //Obtiene el detalle de un lugar por ID.
+ 
 export async function getPlaceDetail(placeId: string): Promise<PlaceDetailApiResponse> {
   const res = await fetch(`${BACKEND_URL}/api/places/${placeId}`, {
     method: "GET",

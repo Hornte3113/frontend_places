@@ -1,8 +1,8 @@
-// ============================================================
+
 // TIPOS — Espejo de los contratos del backend
 // El frontend conoce la forma de los datos que recibe,
-// pero NO sabe nada de Google Places directamente.
-// ============================================================
+
+
 
 export interface PlaceDisplayName {
   text: string;
